@@ -17,7 +17,15 @@ def turnToSoup(url):
 def findtotalPages(soup):
     container = soup.find('div', class_='pager')
     
-    totalPages = int(container.find_all('a')[2]['href'][-2:])
+    string = container.find_all('a')[2]['href']
+    #Extract just the numbers from the string
+    numbers = [char for char in string if char.isdigit()]
+    
+    totalPages = ''
+    for num in numbers:
+        totalPages+=num
+    
+    totalPages = int(totalPages)
     
     return totalPages
     
