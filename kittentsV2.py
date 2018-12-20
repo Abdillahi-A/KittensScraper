@@ -16,20 +16,16 @@ def turnToSoup(url):
 
 def findtotalPages(soup):
     container = soup.find('div', class_='pager')
-    
     string = container.find_all('a')[2]['href']
-    #Extract just the numbers from the string
-    numbers = [char for char in string if char.isdigit()]
     
     totalPages = ''
-    for num in numbers:
-        totalPages+=num
-    
-    totalPages = int(totalPages)
-    
-    return totalPages
-    
+    for char in string:
+        if char.isdigit():
+            totalPages+=char
 
+    return int(totalPages)
+    
+    
 def findImageLinks(soup):
     
     # finds all the image links 
@@ -45,7 +41,6 @@ def findImageLinks(soup):
         
     return listOfImageLinks
         
-    
 
 def writeImagesToFile(listOfImageLinks):
     
@@ -77,8 +72,5 @@ def main(pagesToScrape=1):
 
 #Please specify how many pages you'd like to scrape inside the (). Default set to 1.
 main()
-
-
-
 
 
