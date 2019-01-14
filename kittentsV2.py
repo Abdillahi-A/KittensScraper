@@ -60,6 +60,8 @@ def main(pagesToScrape=1):
     if pagesToScrape > totalPages:
         print(f"Sorry there aren't that many pages available for me to scrape.\nPlease choose a number smaller than {totalPages} and try again.\n")
         sys.exit()
+
+    print("Downloading cute kittens started. This might take a few seconds...")
         
     for i in range(pagesToScrape):
         
