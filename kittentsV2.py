@@ -68,6 +68,8 @@ def main(pagesToScrape=1):
         listOfImageLinks = findImageLinks(soup)
         
         writeImagesToFile(listOfImageLinks)
+    
+    print("\nAll done! \n\nCheck your folder to see all the cute images of kittens I've found. Enjoy!")
 
 
 #Please specify how many pages you'd like to scrape inside the (). Default set to 1.
